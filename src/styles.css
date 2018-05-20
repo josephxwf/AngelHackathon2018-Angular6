@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Bungee|Lato:400,700,900');
+body, html { 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    color: #6d6f7b;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+ }
+
+div { margin: 0;
+     padding: 0;
+     
+     }
+     @keyframes fade-in-animation {
+        0%   { opacity: 0; }
+        10%   { opacity: .0; }
+        25%   { opacity: .4; }
+        100% { opacity: 1; }
+      }
+      
+      .fade-in-delayed {
+        animation: 1.6s ease-out 0s 1 fade-in-animation;
+      }

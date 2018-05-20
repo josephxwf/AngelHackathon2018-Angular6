@@ -1,0 +1,26 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  .mat-header-cell.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .container-fluid {
+    background-color: rgba(250,230,230,.8);
+  }
+
+  .chart-container {
+    width: 80%;
+    margin: auto;
+  }
+
+  .full-container {
+    margin-top: -10%;
+    height: 200px;
+    background-color: rgba(250,230,230,.8);
+  }
