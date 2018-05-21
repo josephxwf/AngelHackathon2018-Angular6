@@ -1,37 +1,107 @@
 <div class="full-container">
   </div>
+
+
 <div class="container-fluid">
   <div class="chart-container">
 <div class="example-container mat-elevation-z1">
+  <div class="header-container">
+  <h3>Saved Locations</h3>
+</div>
   <table mat-table #table [dataSource]="dataSource" matSort>
 
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="address">Address
+          <span class="spacer"></span>
+          <i class="fa fa-location-arrow" aria-hidden="true"></i>
+      </th>
+      <td mat-cell *matCellDef="let element">
+    <!--    <a href="{{element.url}}">{{element.address}}</a> -->
+            <a href="">{{element.address}}</a>
+        </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <ng-container matColumnDef="Work Distance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="work_distance"> Work
+          <span class="spacer"></span>
+          <i class="fa fa-road" aria-hidden="true"></i>
+      </th>
+      <td id="workD" mat-cell *matCellDef="let element"> {{element.work_distance}} </td>
     </ng-container>
+
+
+    <ng-container matColumnDef="Work Duration">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="work_time">
+          Work
+          <span class="spacer"></span>
+          <i class="fa fa-clock-o" aria-hidden="true"></i></th>
+        <td mat-cell *matCellDef="let element"> {{element.work_duration}} </td>
+      </ng-container>
+
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    <ng-container matColumnDef="School Distance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="school_distance"> School
+          <span class="spacer"></span>
+          <i class="fa fa-road" aria-hidden="true"></i>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.school_distance}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="School Duration">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="school_time">School
+            <span class="spacer"></span>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.school_duration}} </td>
+      </ng-container>
+
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    <ng-container matColumnDef="Rent">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="rent"> Rent
+          <span class="spacer"></span>
+          <i class="fa fa-usd" aria-hidden="true"></i>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.rent}} </td> 
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
+
+
+
 </div>
-</div>
+<div class="chart-container">
+  <div class="row-spacer"></div>
+<div class="row">
+    <div class="col-md-6">
+    <mat-list class="box mat-elevation-z1">
+        <div class="box-data">
+        <h4>Miles Saved <i class="fa fa-road" aria-hidden="true"></i></h4>
+        <mat-list-item><i class="fa fa-briefcase" aria-hidden="true"></i>
+          : <span class="wide green">3.1 miles</span></mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item><i class="fa fa-graduation-cap" aria-hidden="true"></i>: <span class=" green wide">4.5 miles</span></mat-list-item>
+      </div>
+      </mat-list>
+
+    </div>
+    <div class="col-md-6">
+        <mat-list class="box mat-elevation-z1">
+          <div class="box-data">
+            <h4>Time Saved <i class="fa fa-clock-o" aria-hidden="true"></i></h4>
+            <mat-list-item><i class="fa fa-briefcase" aria-hidden="true"></i>
+              : <span class="wide red">-2 mins</span></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><i class="fa fa-graduation-cap" aria-hidden="true"></i>: <span class="green wide"> 8 mins</span></mat-list-item>
+
+          </div>
+          </mat-list>
+    </div>
+    </div>
+        </div>
+  </div>

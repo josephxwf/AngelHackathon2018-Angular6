@@ -1,0 +1,25 @@
+
+  .container-fluid {
+
+    height: 100%;
+    margin-top: 5%;
+    text-align: center;
+    padding: 0px;
+    
+  }
+
+  .firstRound {
+    height: 100%;
+    background-image: url("../../assets/map.JPG");
+    border-bottom: 1px solid black;
+}
+
+.gas {
+    width: 100%;
+    
+
+}
+
+.divSpacer {
+    height: 100px;
+}

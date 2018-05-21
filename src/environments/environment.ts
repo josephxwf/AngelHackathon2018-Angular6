@@ -4,15 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyAHv4vxrvnPbZ4ZfdbOnYgWhtetZg7qCag",
-    authDomain: "anglehack2018.firebaseapp.com",
-    databaseURL: "https://anglehack2018.firebaseio.com",
-    projectId: "anglehack2018",
-    storageBucket: "anglehack2018.appspot.com",
-    messagingSenderId: "135066142677"
 
-  }
+    firebase: {
+          apiKey: "AIzaSyB25FGsOu--lROPLhSaaSe2plETGI5vvQ4",
+          authDomain: "angelhack-firebase-project.firebaseapp.com",
+          databaseURL: "https://angelhack-firebase-project.firebaseio.com",
+          projectId: "angelhack-firebase-project",
+          storageBucket: "angelhack-firebase-project.appspot.com",
+          messagingSenderId: "805021557584"
+    }
 };
 
 /*

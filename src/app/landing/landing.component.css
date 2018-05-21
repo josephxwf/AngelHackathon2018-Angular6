@@ -4,11 +4,12 @@
     margin-top: -10%;
 }
 
-.container-fluid {
+.fade-in-delayed {
     height: 1000px;
     padding: 0px;
     margin: 0px;
     background-image: url("../../assets/houses-lan.JPG");
+    border-bottom: 1px solid black;
 }
 
 .center-text {
@@ -18,7 +19,7 @@
     background-color: rgba(255,255,255, 0.9);
     border-radius: 5%;
     margin-top: 12%;
-    color: black;
+    color: rgb(100, 100, 100);
 }
 
 .example-container {
@@ -32,4 +33,17 @@
   
   .example-container > * {
     width: 100%;
+  }
+
+  .header-text {
+    padding-top: 2%;
+    width: 100%;
+    margin: 0 auto;
+    height: 400px;
+    text-align: center;
+  }
+
+  hr {
+      color: black;
+      
   }
