@@ -33,7 +33,16 @@ npm start <br>
 
 ## Technologies
 
-Angularjs,  Chrome extension, firebase, AWS
+Angularjs,  Chrome extension, firebase, AWS, google API
 
 ##How it works
-A website that allows users to choose a apartment with the shortest commute distance to workplace, school, supermarket, gym, etc. User can select multiple locations he often visits and visualize it on our platform. go to chrome browser, type chrome://extensions in the url bar, click LOAD UNPACKED, upload the Chrome extension we created, go to https://www.zillow.com/ and choose a apartment you like, click the house icon(our chrome extensions) in the top right of the browser, save address prompt button pop up, click it to save the address of that apartment to our firebase database. you also need to add your school address and work address on our website and our web app will calculate and show you the distance and the time cost from that apartment to your school and work place. It will help you choose the most convenient
+A website that allows users to choose a apartment with the shortest commute distance to workplace, school, supermarket, gym, etc. User can select multiple locations that he often visits and visualize it on our platform. go to chrome browser, type chrome://extensions in the url bar, click LOAD UNPACKED, upload the Chrome extension we created, go to https://www.zillow.com/ and choose a apartment you like, click the house icon(our chrome extensions) in the top right of the browser, save address prompt button pop up, click it to save the address of that apartment to our firebase database. you also need to add your school address and work address on our website and our web app will calculate and show you the distance and the time cost from that apartment to your school and work place. It will help you choose the most convenient
+
+## commands to deploy angular app to AWS S3
+1. ng build --prod --build-optimizer
+2. after step 1, a dist folder will be generated, upload all files in dist folder to S3, make sure index.php is in the root directory.
+
+## install bootstrap
+https://stackoverflow.com/questions/43557321/angular-4-how-to-include-bootstrap
+## fix bootstrap include error
+https://stackoverflow.com/questions/45683192/angular-4-bootstrap-4-not-rendering-properly

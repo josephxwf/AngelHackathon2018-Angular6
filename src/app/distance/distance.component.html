@@ -1,18 +1,74 @@
-<div class="full-container">
-  </div>
+<div class="chart-container container-fluid">
+<div class="row rowtb">
 
 
-<div class="container-fluid">
-  <div class="chart-container">
+  <div class="container">
+  <form>
+  <div class="form-group">
+        <label for="disabledSelect">Choose frequently visited sites</label>
+        <select  class="form-control col-sm-2">
+          <option>Home address</option>
+          <option>Workplace address</option>
+          <option>School address</option>
+        </select>
+      </div>
+
+
+     <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-5">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="">
+        </div>
+      </div>
+
+     <div class="form-group row">
+     <label for="inputEmail3" class="col-sm-2 col-form-label">City</label>
+     <div class="col-sm-5">
+       <input type="email" class="form-control" id="inputEmail3" placeholder="">
+     </div>
+    </div>
+
+    <div class="form-group row">
+       <label for="inputEmail3" class="col-sm-2 col-form-label">State</label>
+       <div class="col-sm-2">
+         <input type="email" class="form-control" id="inputEmail3" placeholder="">
+       </div>
+
+       <label for="inputEmail3" class="col-sm-1 col-form-label">Zip</label>
+       <div class="col-sm-2">
+         <input type="email" class="form-control" id="inputEmail3" placeholder="">
+       </div>
+
+     </div>
+
+     <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Country</label>
+        <div class="col-sm-5">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="">
+        </div>
+      </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+   </div>
+
+
+</div>
+
+
+  <div class="row-spacer"></div>
+
+
+<div class="">
 <div class="example-container mat-elevation-z1">
   <div class="header-container">
-  <h3>Saved Locations</h3>
-</div>
-  <table mat-table #table [dataSource]="dataSource" matSort>
+   <h3>Saved Locations</h3>
+  </div>
+  <table class="table table-responsive" mat-table #table [dataSource]="dataSource" matSort>
 
     <!-- Position Column -->
     <ng-container matColumnDef="Address">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="address">Address
+      <th scope="row" mat-header-cell *matHeaderCellDef mat-sort-header="address">Address
           <span class="spacer"></span>
           <i class="fa fa-location-arrow" aria-hidden="true"></i>
       </th>
@@ -24,7 +80,7 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="Work Distance">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="work_distance"> Work
+      <th scope="row" mat-header-cell *matHeaderCellDef mat-sort-header="work_distance"> Work
           <span class="spacer"></span>
           <i class="fa fa-road" aria-hidden="true"></i>
       </th>
@@ -33,7 +89,7 @@
 
 
     <ng-container matColumnDef="Work Duration">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="work_time">
+        <th scope="row" mat-header-cell *matHeaderCellDef mat-sort-header="work_time">
           Work
           <span class="spacer"></span>
           <i class="fa fa-clock-o" aria-hidden="true"></i></th>
@@ -43,7 +99,7 @@
 
     <!-- Weight Column -->
     <ng-container matColumnDef="School Distance">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="school_distance"> School
+      <th scope="row" mat-header-cell *matHeaderCellDef mat-sort-header="school_distance"> School
           <span class="spacer"></span>
           <i class="fa fa-road" aria-hidden="true"></i>
       </th>
@@ -51,7 +107,7 @@
     </ng-container>
 
     <ng-container matColumnDef="School Duration">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="school_time">School
+        <th scope="row" mat-header-cell *matHeaderCellDef mat-sort-header="school_time">School
             <span class="spacer"></span>
             <i class="fa fa-clock-o" aria-hidden="true"></i>
         </th>
@@ -60,23 +116,23 @@
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="Rent">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="rent"> Rent
+      <th scope="row" mat-header-cell *matHeaderCellDef mat-sort-header="rent"> Rent
           <span class="spacer"></span>
           <i class="fa fa-usd" aria-hidden="true"></i>
       </th>
-      <td mat-cell *matCellDef="let element"> {{element.rent}} </td> 
+      <td mat-cell *matCellDef="let element"> {{element.rent}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
-
-
-
 </div>
+
+<div class="row-spacer"></div>
+
+
 <div class="chart-container">
-  <div class="row-spacer"></div>
 <div class="row">
     <div class="col-md-6">
     <mat-list class="box mat-elevation-z1">
@@ -97,7 +153,7 @@
             <mat-list-item><i class="fa fa-briefcase" aria-hidden="true"></i>
               : <span class="wide red">-2 mins</span></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><i class="fa fa-graduation-cap" aria-hidden="true"></i>: <span class="green wide"> 8 mins</span></mat-list-item>
+            <mat-list-item><i class="fa fa-graduation-cap" aria-hidden="true"></i>: <span class="green wide text-center"> 8 mins</span></mat-list-item>
 
           </div>
           </mat-list>
