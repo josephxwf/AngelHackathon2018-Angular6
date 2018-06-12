@@ -1,46 +1,46 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { DistanceComponent } from './distance/distance.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LandingComponent } from './landing/landing.component';
-import { MaterialModule } from './my-module/my-module.module';
-import { FormsModule} from '@angular/forms';
-import { AngularFireModule  } from 'angularfire2';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
-import { environment } from '../environments/environment';
-import { AngularFireDatabase} from "angularfire2/database";
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AboutComponent } from './about/about.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 
-const appRoutes: Routes = [
+import { AppRoutingModule }     from './app-routing.module';
 
-  { path: '', component: LandingComponent },
-  { path: 'distance', component: DistanceComponent },
-  { path: 'about', component: AboutComponent }
-
-];
+import { AppComponent }         from './app.component';
+import { DashboardComponent }   from './dashboard/dashboard.component';
+import { UserDetailComponent }  from './user-detail/user-detail.component';
+import { UsersComponent }      from './users/users.component';
+import { UserSearchComponent }  from './user-search/user-search.component';
+import { MessagesComponent }    from './messages/messages.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DistanceComponent,
-    LandingComponent,
-    AboutComponent
-  ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    RouterModule.forRoot(appRoutes),
-    AngularFirestoreModule,
-    AngularFireDatabaseModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AppRoutingModule,
+    HttpClientModule
+
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    /*
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
+    */
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    UsersComponent,
+    UserDetailComponent,
+    MessagesComponent,
+    UserSearchComponent,
+    UserFormComponent
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

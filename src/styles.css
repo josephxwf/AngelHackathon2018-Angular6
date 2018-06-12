@@ -1,30 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Bungee|Lato:400,700,900');
-body, html { 
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Lato', sans-serif;
-    color: #6d6f7b;
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
- }
 
-div { margin: 0;
-     padding: 0;
-     
-     }
-     @keyframes fade-in-animation {
-        0%   { opacity: 0; }
-        10%   { opacity: .0; }
-        25%   { opacity: .4; }
-        100% { opacity: 1; }
-      }
-      
-      .fade-in-delayed {
-        animation: 1.6s ease-out 0s 1 fade-in-animation;
-      }
+
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+/*
+ * Typography
+ */
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+  background-color: #5F9EA0;
+  color:white;
+  margin-top: 0.2em;
+}
+
+.sidebar .nav-link:hover {
+  background-color: blue;
+
+}
+
+/*
+ * Dashboard
+ */
+
+ /* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
