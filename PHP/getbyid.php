@@ -21,8 +21,14 @@ $data = json_decode(file_get_contents("php://input")); // $data is an Hero[] arr
 
 /////////////// if we use http get to send data////
 $id = $_GET['id'];
-$sql = "SELECT * FROM userHomeAddress WHERE id = '$id' ";
+
+$sql = "
+        
+        SELECT * FROM Users 
+        INNER JOIN AddressTB1 ON Users.personID = AddressTB1.personID
+        WHERE Users.personID = '$id' ";
 ///////////////
+
 
 
 $result = $conn->query($sql);
@@ -30,7 +36,7 @@ if ($result->num_rows > 0) {
     // output data of each row
      
     while($row = $result->fetch_assoc()) {
-        $data = $row; // adding each object to $data[] array. // special syntax
+        $data[] = $row; // adding each object to $data[] array. // special syntax
     }
     echo json_encode($data);
 } else {

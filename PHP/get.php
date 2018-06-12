@@ -13,7 +13,7 @@ if (!$conn) {
 
 $data = json_decode(file_get_contents("php://input")); // $data is an Hero[] array, now empty
 
-$sql = "SELECT * FROM userHomeAddress ORDER BY id DESC";
+$sql = "SELECT * FROM Users ORDER BY personID DESC";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
