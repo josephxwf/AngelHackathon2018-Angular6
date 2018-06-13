@@ -5,6 +5,8 @@ import { USERS }    from '../mock-users';
 import {NgForm} from '@angular/forms';
 import { EventEmitter, Input, Output } from '@angular/core';
 import { UserService }  from '../user.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-user-form',
@@ -19,40 +21,76 @@ export class UserFormComponent{
     // get data from parent component user-detail and assign to variable model
     @Input()  model: User[];
     // send data of variable formData to parent component user-detail
-    @Output() formData = new EventEmitter<NgForm>();//https://angular.io/guide/component-interaction#parent-listens-for-child-event
+    //@Output() formData = new EventEmitter<NgForm>();//https://angular.io/guide/component-interaction#parent-listens-for-child-event
 
 
-    @Input() createNew = false;
+    //@Input() createNew = false;
     @Input() submitted = false;
-    @Input() edit = false;
-    @Input() showForm = true;
+    @Input() editUser = false;
+    //@Input() showForm = true;
 
     constructor(
 
-      private userService: UserService
+      private userService: UserService,
+      private location: Location
+
+
 
     ) {
       this.model = USERS;
     }
 
+
+
+
+
+
+
+
     onSubmit(form: NgForm) {
       this.submitted = true;
-      if(this.edit == false){
-      this.formData.emit(form); // send new user data
-      this.createNew = false;
+      if(this.editUser == false){
+      this.add(form);
+
     }else{
-      //this.user = new User(133,form.value.name,'','','','');
       // edit existing user
-      this.userService.updateUser(form.value).subscribe(); // need subscribe() to make this call work
-
-      this.edit = false;
-    }
-
-    //console.log(form.value.name)
-
+      this.update(form);
+      this.editUser = false;
+        }
     }
 
 
+    update(form: NgForm): void {
+     this.userService.updateUser(form.value).subscribe(); // need subscribe() to make this call work
+   }
+
+    add(form: NgForm): void {
+      this.userService.addUser(form.value).subscribe();
+    }
+
+
+    goBack(): void {
+      this.location.back();
+    }
+
+    /*
+        onSubmit(form: NgForm) {
+          this.submitted = true;
+          if(this.editUser == false){
+          //this.formData.emit(form); // send new user data
+          this.createNew = false;
+        }else{
+          //this.user = new User(133,form.value.name,'','','','');
+          // edit existing user
+          this.userService.updateUser(form.value).subscribe(); // need subscribe() to make this call work
+
+          this.editUser = false;
+        }
+
+        //console.log(form.value.name)
+
+        }
+    */
 /*
     // TODO: Remove this when we're done
     get diagnostic() { return JSON.stringify(this.model); }

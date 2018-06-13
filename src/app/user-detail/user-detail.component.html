@@ -1,9 +1,12 @@
 <div *ngIf="users">
+<!--
   <button  class="glyphicon glyphicon-chevron-left" (click)="goBack()" > < go back</button>
   <hr>
-  <!--
-  <h2>{{ user.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{user.id}}</div>
+
+  <h2>{{ users[0].username | uppercase }} Details</h2>
+  <div><span>id: </span>{{users[0].personID}}</div>
+
+
 
   <div>
     <label>name:
@@ -12,19 +15,40 @@
   </div>
 -->
 
-
-
-
+<!--
   <app-user-form
   [edit] = "nameEditable"
   [submitted] = "formSubmitted"
   [model]="users"
   (formData)="add($event)">
-  </app-user-form> <!-- pass formdata to add() of parent component users-->
+  </app-user-form> pass formdata to add() of parent component users
+-->
 
+
+  <app-user-form
+  [editUser] = "nameEditable"
+  [submitted] = "formSubmitted"
+  [model]="users">
+  </app-user-form> <!--pass formdata to add() of parent component users-->
+
+
+  <h5>Apartment addresses extracted from Chrome Extention</h5>
+
+  <ul class="apartments">
+    <li *ngFor="let apartment of apartments">
+
+        <a link="">
+        <span class="badge">{{apartment.apartmentID}}</span> {{apartment.address}}
+        </a>
+      <button class="delete" title="delete apartment"
+      (click)="delete(apartment)">x</button>
+    
+    </li>
+
+  </ul>
 
   <!--<button (click)="save()">Edit</button>-->
-  <hr>
+
   <section class="row text-center placeholders">
     <div class="col-6 col-sm-3 placeholder">
       <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">

@@ -1,8 +1,11 @@
 
+<button  type="button" class="btn btn-primary-outline pull-right" (click)="goBack()" ><i class="fa fa-plus"></i> Go Back</button>
 
-<div [hidden]="!showForm" class="container">
 
-  <div [hidden]="createNew">
+
+<div class="container">
+
+  <div>
   <h2>{{ model[0].username | uppercase }} Details</h2>
   <div class="row">
     <div class="col-sm-2  col-md-2">id:</div>
@@ -30,7 +33,7 @@
         <input type="text" class="form-control" id="username"
         required
         [(ngModel)]="model[0].username" name="username"
-        #username="ngModel" [readonly]="edit">
+        #username="ngModel" [readonly]="editUser">
         <div [hidden]="username.valid || username.pristine"
         class="alert alert-danger">
         Name is required
@@ -192,10 +195,12 @@
 
 
   <br>
-  <button class="btn btn-primary" (click)="submitted=false;edit = true">Edit</button>
-  or
+  <button class="btn btn-primary" (click)="submitted=false; editUser = true">Edit</button>
+  <!--or
   <button type="button" class="btn btn-success" (click)="submitted=false; createNew= true; userForm.reset(); edit = false">Create New User</button>
+   -->
 
+  <hr>
 </div>
 </div>
 

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -10,19 +12,22 @@ import {NgForm} from '@angular/forms';
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  clickCreate = false;
-  buttonText = "Create New User";
+  //clickCreate = false;
+  //buttonText = "Create New User";
 
   //user: User | null;
-  constructor(private userService: UserService) { }
+  constructor(
+  private userService: UserService,
+  private router: Router
+
+) { }
 
   ngOnInit() {
     this.getUsers();
   }
 
-
+/*
   button():void{
-
     if (this.clickCreate == false){
     this.clickCreate=true;
     this.buttonText = "Create Later";
@@ -33,6 +38,12 @@ export class UsersComponent implements OnInit {
   }
 
   }
+  */
+  btnClick= function () {
+          this.router.navigateByUrl('/userform');
+  };
+
+
   getUsers(): void {
     this.userService.getUsers()
     .subscribe(users => this.users = users);
@@ -52,27 +63,17 @@ export class UsersComponent implements OnInit {
         //console.log(this.users);
       });
   }
-*/
+
 
 add(form: NgForm): void {
-
-  /*var username = form.value.username.trim();
-  if (!username ) { return; }
-  this.userService.addUser({username} as User)
-    .subscribe();
-  */
-
-
   this.userService.addUser(form.value)
     .subscribe( user => {
         this.users.push(user);
       //  console.log(this.users);
     });
-
-
-
 }
 
+*/
 
 
 

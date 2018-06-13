@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { User } from './user';
+import {Apartment } from './apartment';
 import { MessageService } from './message.service';
 import {NgForm} from '@angular/forms';
 const httpOptions = {
@@ -15,7 +16,8 @@ const httpOptions = {
 export class UserService {
 
   //private usersUrl = 'api/users';  // URL to web api, https://stackoverflow.com/questions/45722848/angular-2-where-is-url-api-users-defined
-  private urlGet = 'http://localhost:8888/get.php';
+  private urlGetUsers = 'http://localhost:8888/get.php';
+  private urlGetApartments = 'http://localhost:8888/getapartments.php';
   private urlGetById = 'http://localhost:8888/getbyid.php';
   private urlInsert = 'http://localhost:8888/insert.php';
   private urlUpdate = 'http://localhost:8888/update.php';
@@ -27,16 +29,27 @@ export class UserService {
 
   /** GET users from the server */
   getUsers (): Observable<User[]> {
-    return this.http.get<User[]>(this.urlGet)
+    return this.http.get<User[]>(this.urlGetUsers)
       .pipe(
         tap(users => this.log(`fetched users`)),
         catchError(this.handleError('getUsers', []))
       );
   }
 
+  /** GET apartments from the server */
+  getApartments (): Observable<Apartment[]> {
+    return this.http.get<Apartment[]>(this.urlGetApartments)
+      .pipe(
+        tap(users => this.log(`fetched apartments`)),
+        catchError(this.handleError('getApartments', []))
+      );
+  }
+
+
+
   /** GET user by id. Return `undefined` when id not found */
   getUserNo404<Data>(id: number): Observable<User> {
-    const url = `${this.urlGet}/?id=${id}`;
+    const url = `${this.urlGetUsers}/?id=${id}`;
     return this.http.get<User[]>(url)
       .pipe(
         map(users => users[0]), // returns a {0|1} element array
@@ -76,7 +89,7 @@ export class UserService {
       // if not search term, return empty user array.
       return of([]); //of(USERS) returns an Observable<User[]> that emits a single value, the array of mock users.
     }
-    return this.http.get<User[]>(`${this.urlGet}/?name=${term}`).pipe(
+    return this.http.get<User[]>(`${this.urlGetUsers}/?name=${term}`).pipe(
       tap(_ => this.log(`found users matching "${term}"`)),
       catchError(this.handleError<User[]>('searchUsers', []))
     );
@@ -86,7 +99,7 @@ export class UserService {
 
   /** POST: add a new user to the server */
   addUser (user: User): Observable<User> {
-    //console.log(user);
+    console.log(user);
     return this.http.post<User>(this.urlInsert, user, httpOptions).pipe(
 
       tap((user: User) => this.log(`added user w/ id=${user.personID} name=${user.username}`)),
@@ -123,7 +136,7 @@ export class UserService {
    * @param result - optional value to return as the observable result
    */
   private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
+    return (error: any): Observable<T> => { // if dosn't return anyting or echo statement in php executes
 
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead

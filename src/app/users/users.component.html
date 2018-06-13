@@ -1,26 +1,20 @@
 
-<h2>All Users</h2>
-<hr>
+
+
 
 <!--
-<div>
-  <label>User name:
-    <input #userName />
-  </label>
-
-  <button (click)="add2(userName.value); userName.value=''">
-    add
-  </button>
-</div>
--->
 <button type = "button" (click)="button()" >{{buttonText}}</button>
 <app-user-form
 [createNew] = "clickCreate"
 [showForm] = "clickCreate"
 (formData)="add($event)">
-</app-user-form> <!-- pass formdata to add() of parent component users-->
+</app-user-form>  pass formdata to add() of parent component users
+-->
 
+<!--<button type = "button" ><a routerLink="/userform">Create New</a></button> -->
+<button type="button" class="btn btn-primary-outline pull-right" (click)="btnClick();"><i class="fa fa-plus"></i> Create New</button>
 
+<h5>User List</h5>
 <ul class="users">
 
   <li *ngFor="let user of users">
