@@ -36,6 +36,26 @@ export class UserService {
       );
   }
 
+  getCalResult (addrStart: string, addrEnd: string): Observable<Object> {
+
+    //const uri = 'https://maps.googleapis.com/maps/api/geocode/json?';
+    //const apiKey = 'AIzaSyCgcYQJ3GNEXISTBJZghdtUShz2qDEE9gs';
+
+    //var work_address = "350 W Broadway, New York, NY 10013"
+    //var address = "100 W Broadway, New York, NY 10013"
+
+    var url = "https://maps.googleapis.com/maps/api/directions/json?origin="+addrStart+"&destination="+addrEnd+"&key=AIzaSyCgcYQJ3GNEXISTBJZghdtUShz2qDEE9gs";
+
+
+
+    return this.http.get<Object>(url)
+      .pipe(
+        tap(users => this.log(`fetched users`)),
+        catchError(this.handleError('getUsers', []))
+      );
+  }
+
+
   /** GET apartments from the server */
   getApartments (): Observable<Apartment[]> {
     return this.http.get<Apartment[]>(this.urlGetApartments)
@@ -62,7 +82,7 @@ export class UserService {
   }
 
   /** GET user by id. Will 404 if id not found */
-  getUser(id: number): Observable<User[]> {
+  getUser(personID: number): Observable<User[]> {
 
     //const url = `${this.urlGetById}/${id}`;
 
@@ -76,10 +96,10 @@ export class UserService {
     ///////////////////////////////////////////////////////////////
 //get method: https://stackoverflow.com/questions/34475523/how-to-pass-url-arguments-query-string-to-a-http-request-on-angular
     return this.http.get<User[]>(this.urlGetById, {
-      params: {id: id.toString() }
+      params: {personID: personID.toString() }
     }).pipe(
-      tap(_ => this.log(`fetched user id=${id}`)), //RxJS tap operator, which looks at the observable values, does something with those values, and passes them along. The tap call back doesn't touch the values themselves
-      catchError(this.handleError<User[]>(`getUser id=${id}`))
+      tap(_ => this.log(`fetched user id=${personID}`)), //RxJS tap operator, which looks at the observable values, does something with those values, and passes them along. The tap call back doesn't touch the values themselves
+      catchError(this.handleError<User[]>(`getUser id=${personID}`))
     );
   }
 

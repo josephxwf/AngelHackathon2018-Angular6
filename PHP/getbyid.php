@@ -20,7 +20,7 @@ $data = json_decode(file_get_contents("php://input")); // $data is an Hero[] arr
 
 
 /////////////// if we use http get to send data////
-$id = $_GET['personID'];
+$id = $_GET['id'];
 
 $sql = "
         

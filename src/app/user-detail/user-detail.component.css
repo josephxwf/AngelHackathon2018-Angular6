@@ -33,6 +33,13 @@ button:disabled {
 */
 
 
+table th{
+  text-align: center;
+}
+
+table td{
+  text-align: center;
+}
 
 
 /* apartmentsComponent's private CSS styles */
