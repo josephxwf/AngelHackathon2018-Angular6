@@ -13,24 +13,7 @@ if (!$conn) {
 
 $data = json_decode(file_get_contents("php://input")); // $data is an Hero[] array, now empty
 
-////////////// if we use http post to send data////
-
-//$sql = "SELECT * FROM userHomeAddress WHERE id = '$data->id' ";
-////////////////
-
-
-/////////////// if we use http get to send data////
-$id = $_GET['personID'];
-
-$sql = "
-        
-        SELECT * FROM Users 
-        INNER JOIN AddressTB1 ON Users.personID = AddressTB1.personID
-        WHERE Users.personID = '$id' ";
-///////////////
-
-
-
+$sql = "SELECT * FROM Apartments ORDER BY apartmentID DESC";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row

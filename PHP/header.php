@@ -38,24 +38,39 @@ if(empty($res)) {
 							FOREIGN KEY (PersonID) REFERENCES Users(personID)
 							);";
 
-                $query .= "CREATE TABLE AddressTB2(
-							addrID int(11) AUTO_INCREMENT,
+                $query .= "CREATE TABLE Apartments(
+							apartmentID int(11) AUTO_INCREMENT,
 							address varchar(255),
-							city varchar(255),
-							state varchar(255),
-							zipcode varchar(255),
 							rent varchar(255),
-							PRIMARY KEY  (addrID)
+							PRIMARY KEY  (apartmentID)
 
 							)";
 
-                //$res = mysqli_query($conn, $query);
+           
 
-				if ($conn->multi_query($query) === TRUE) {
-				    echo "New records created successfully";
-				} else {
-				    echo "Error: " . $sql . "<br>" . $conn->error;
+
+				//free result of each query above to preapare for next sql $sql2 
+				if (mysqli_multi_query($conn,$query))
+				{
+				  do
+				    {
+				    // Store first result set
+				    if ($result=mysqli_store_result($conn)) {
+				      
+				      /* Fetch one and one row
+				      while ($row=mysqli_fetch_row($result))
+				        {
+				        printf("%s\n",$row[0]);
+				        }
+				    */
+				      // Free result set
+				      mysqli_free_result($result);
+				      }
+				    }
+				  while (mysqli_next_result($conn));
 				}
+
+
 }
 ?>
 
