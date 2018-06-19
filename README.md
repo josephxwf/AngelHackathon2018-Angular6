@@ -1,4 +1,4 @@
-# Smalltown2_Angular6_PHP_MySQL
+# Smalltown2_Angular6_PHP_MySQL  (http://www.josephxwf.com/smalltown/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
@@ -27,19 +27,20 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 
-## install bootstrap
+## Install bootstrap
 https://stackoverflow.com/questions/43557321/angular-4-how-to-include-bootstrap
-## fix bootstrap include error
+
+## Fix bootstrap include error
 https://stackoverflow.com/questions/45683192/angular-4-bootstrap-4-not-rendering-properly
 
 
-##When deploy it, need add the code below to app.module.ts to switch to product mode
+## When deploy it, need add the code below to app.module.ts to switch to product mode
 
 import {enableProdMode} from '@angular/core';
 enableProdMode();
 
 
-##Dependencies:
+## Dependencies:
 ngx-scroll-to:
 https://www.npmjs.com/package/@nicky-lenaers/ngx-scroll-to
 
