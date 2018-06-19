@@ -1,4 +1,5 @@
-# Smalltown2_Angular6_PHP_MySQL  (http://www.josephxwf.com/smalltown/)
+# Smalltown2_Angular6_PHP_MySQL  
+(http://www.josephxwf.com/smalltown/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
