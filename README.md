@@ -1,4 +1,4 @@
-# Angular6_PHP_MySQL
+# Smalltown2_Angular6_PHP_MySQL
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
@@ -62,12 +62,13 @@ fix bootstrap include error
 
    Angular6, PHP, MySQL, Chrome extension, googleMaps JavaScript API, LAMP
 
-##How it works
+## How it works
    A website that allows users to choose a apartment with the shortest commute distance to workplace, school, supermarket, gym, etc. User can select multiple locations that he often visits and visualize it on our platform. go to chrome browser, type chrome://extensions in the url bar, click LOAD UNPACKED, upload the Chrome extension we created, go to https://www.zillow.com/ and click on an apartment in the rent section on zillow, and then click the house icon(our chrome extensions) in the top right of the browser, a save address prompt button will pop up, click it to save the address of that apartment to our MySQL database. You also need to add your school address or work address on our website when you create a new user account and our web app will calculate and show you the distance and the time cost from that apartment to your school and work place. It will help you to compare and choose the most convenient apartment based on commute time.
 
-## commands to deploy angular app to server
+## Commands to deploy angular app to server
    1. ng build --prod --build-optimizer
    2. after step 1, a dist folder will be generated, upload all files in dist folder to S3, make sure index.php is in the root directory.
    3. change the execution right of index.html to executable and change the base tag to point to the directory you want it to be the root of your website.
+
 ## Chrome Extension
 This Chrome Extension is used for our customers to get information of a perspective apartment he/she likes and show that info on our web application. It will save customers a lot of time by only one click.
