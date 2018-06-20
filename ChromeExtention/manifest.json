@@ -1,7 +1,7 @@
 {
   "name": "Getting Started Example",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "Allows you to extract the address of an apartment from zillow.com and show it on our smalltown web app directly by one click",
   "permissions": ["activeTab", "declarativeContent", "storage","http://localhost:8888/*"],
   "options_page": "options.html",
   "background": {
