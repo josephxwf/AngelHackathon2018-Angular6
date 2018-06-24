@@ -1,7 +1,7 @@
 {
   "name": "Small Town Zillow",
   "version": "1.0",
-  "description": "Allows you to extract the address of an apartment from zillow.com and show it on our smalltown web app directly by one click",
+  "description": "Allows you to extract the address of an apartment from zillow.com and find the best apartment by one click",
   "permissions": ["activeTab", "declarativeContent", "storage","https://www.josephxwf.com/smalltown/myphp/*"],
   "options_page": "options.html",
   "background": {

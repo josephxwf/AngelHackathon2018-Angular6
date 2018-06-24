@@ -76,3 +76,11 @@ fix bootstrap include error
 
 ## Chrome Extension
 This Chrome Extension is used for our customers to get information of a perspective apartment he/she likes and show that info on our web application. It will save customers a lot of time by only one click.
+## Issues
+   1. Caches issue solved after using post method instead of get method
+   2. URL routing issue solved by adding { useHash: true } in app-routing.noudle.ts:
+
+   @NgModule({
+     imports: [ RouterModule.forRoot(routes, { useHash: true }) ], // "useHash: true" solves URL routing issue on http serve
+     exports: [ RouterModule ]
+   })
