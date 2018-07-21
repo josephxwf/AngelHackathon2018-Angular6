@@ -1,0 +1,124 @@
+<div *ngIf="users">
+<!--
+  <button  class="glyphicon glyphicon-chevron-left" (click)="goBack()" > < go back</button>
+  <hr>
+
+  <h2>{{ users[0].username | uppercase }} Details</h2>
+  <div><span>id: </span>{{users[0].personID}}</div>
+
+
+
+  <div>
+    <label>name:
+      <input [(ngModel)]="user.name" placeholder="name"/>
+    </label>
+  </div>
+-->
+
+<!--
+  <app-user-form
+  [edit] = "nameEditable"
+  [submitted] = "formSubmitted"
+  [model]="users"
+  (formData)="add($event)">
+  </app-user-form> pass formdata to add() of parent component users
+-->
+
+
+  <app-user-form
+  [editUser] = "nameEditable"
+  [submitted] = "formSubmitted"
+  [model]="users">
+  </app-user-form> <!--pass formdata to add() of parent component users-->
+
+
+  <h2>Saved Apartment Locations Extracted from Chrome Extention</h2>
+  <hr>
+  <p>(click any row to compare that apartment with your current apartment!)</p>
+
+
+  <ul class="apartments">
+    <li *ngFor="let apartment of apartments">
+
+        <a (click)="onClick(apartment)">
+        <span class="badge">{{apartment.apartmentID}}</span> {{apartment.address}}
+        </a>
+      <button class="delete" title="delete apartment"
+      (click)="delete(apartment)">x</button>
+
+    </li>
+
+  </ul>
+
+  <!--<button (click)="save()">Edit</button>-->
+<br>
+
+<h2>Comparison for Current Apt. and Potential Apt. </h2>
+<div  id = "result">
+  <div class="row">
+    <div class = "col-sm-12  col-md-12 ">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th colspan="2">Current Apartment->Dest</th>
+          <th colspan="2">Potential Apartment->Dest</th>
+
+        </tr>
+
+        <tr>
+          <th>Distance</th>
+          <th>Duration</th>
+          <th>Distance</th>
+          <th>Duration</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngIf="calResult && calResult2">
+
+          <td>{{calResult.routes[0].legs[0].distance.text}}</td>
+          <td>{{calResult.routes[0].legs[0].duration.text}}</td>
+          <td>{{calResult2.routes[0].legs[0].distance.text}}</td>
+          <td>{{calResult2.routes[0].legs[0].duration.text}}</td>
+
+
+
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+
+  </div>
+</div>
+
+<!--
+    <section class="row text-center placeholders">
+      <div class="col-6 col-sm-3 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <div class="text-muted">Something else</div>
+      </div>
+      <div class="col-6 col-sm-3 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <span class="text-muted">Something else</span>
+      </div>
+      <div class="col-6 col-sm-3 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <span class="text-muted">Something else</span>
+      </div>
+      <div class="col-6 col-sm-3 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <span class="text-muted">Something else</span>
+      </div>
+    </section>
+-->
+
+</div>

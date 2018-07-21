@@ -1,0 +1,121 @@
+/* UserDetailComponent's private CSS styles */
+/*
+label {
+  display: inline-block;
+  width: 3em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+*/
+
+
+table th{
+  text-align: center;
+}
+
+table td{
+  text-align: center;
+}
+
+
+/* apartmentsComponent's private CSS styles */
+.apartments {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 30em;
+}
+.apartments li {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+/*  padding: .3em 0;*/
+  height: 2em;
+  border-radius: 4px;
+}
+
+.apartments li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.apartments a {
+  color: #888;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  width: 30em;
+}
+
+.apartments a:hover {
+  color:#607D8B;
+}
+
+.apartments .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #5F9EA0;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  /*top: -2px;*/
+  height: 2.5em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+button {
+  background-color: #5F9EA0;
+  color:white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+  font-size: 0.5em;
+  margin: .5em;
+
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button.delete {
+  position: relative;
+  left: 48em;
+  top: -33px;
+  background-color: gray !important;
+  color: white;
+}
